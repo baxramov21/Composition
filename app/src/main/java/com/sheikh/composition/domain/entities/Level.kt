@@ -1,4 +1,4 @@
-package com.sheikh.composition.domain.entity
+package com.sheikh.composition.domain.entities
 
 enum class Level {
 
