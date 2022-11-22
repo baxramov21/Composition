@@ -57,6 +57,4 @@ object GameRepositoryImpl: GameRepository {
         }
         return Question(sum, visibleNumber, options.toList())
     }
-
-
 }
