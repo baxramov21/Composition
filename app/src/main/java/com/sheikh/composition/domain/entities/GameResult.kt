@@ -1,4 +1,6 @@
-package com.sheikh.composition.domain.entity
+package com.sheikh.composition.domain.entities
+
+import android.view.inspector.IntFlagMapping
 
 data class GameResult(
     val win: Boolean,

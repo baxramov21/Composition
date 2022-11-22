@@ -1,9 +1,8 @@
-package com.sheikh.composition.domain.entity
+package com.sheikh.composition.domain.entities
 
 data class GameSettings(
-    val gameTimeInSeconds: Int,
     val maxSumValue: Int,
     val minCountOfRightAnswers: Int,
     val minPercentOfRightAnswers: Int,
-
-    )
+    val timeInSeconds: Int
+)
