@@ -38,8 +38,8 @@ class WelcomeFragment : Fragment() {
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
-            .add(R.id.main_container, ChooseLevelFragment.newInstance())
-            .addToBackStack(null)
+            .replace(R.id.main_container, ChooseLevelFragment.newInstance())
+            .addToBackStack(ChooseLevelFragment.FRAGMENT_NAME)
             .commit()
     }
 }
