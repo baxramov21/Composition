@@ -35,7 +35,7 @@ class GameFinishedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                returnToChooseLevelFragment()
+                retryGame()
             }
 
         }
@@ -43,6 +43,10 @@ class GameFinishedFragment : Fragment() {
         requireActivity()
             .onBackPressedDispatcher
             .addCallback(viewLifecycleOwner, callback)
+
+        binding.buttonRetry.setOnClickListener {
+            retryGame()
+        }
     }
 
     override fun onDestroyView() {
@@ -51,10 +55,12 @@ class GameFinishedFragment : Fragment() {
     }
 
     private fun putArgs() {
-        gameResult = requireArguments().getSerializable(GAME_RESULT) as GameResult
+        requireArguments().getParcelable<GameResult>(GAME_RESULT)?.let {
+            gameResult = it
+        }
     }
 
-    private fun returnToChooseLevelFragment() {
+    private fun retryGame() {
         requireActivity().supportFragmentManager
             .popBackStack(
                 GameFragment.FRAGMENT_NAME,
@@ -71,7 +77,7 @@ class GameFinishedFragment : Fragment() {
         fun newInstance(gameResult: GameResult): GameFinishedFragment {
             return GameFinishedFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(GAME_RESULT, gameResult)
+                    putParcelable(GAME_RESULT, gameResult)
                 }
             }
         }
