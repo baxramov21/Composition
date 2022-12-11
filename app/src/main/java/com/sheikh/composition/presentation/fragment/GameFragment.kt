@@ -1,6 +1,5 @@
-package com.sheikh.composition.presentation
+package com.sheikh.composition.presentation.fragment
 
-import android.media.MediaFormat.KEY_LEVEL
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
