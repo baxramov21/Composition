@@ -1,4 +1,4 @@
-package com.sheikh.composition.presentation
+package com.sheikh.composition.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sheikh.composition.R
 import com.sheikh.composition.databinding.FragmentWelcomeBinding
+import com.sheikh.composition.presentation.fragment.ChooseLevelFragment
 
 class WelcomeFragment : Fragment() {
 
