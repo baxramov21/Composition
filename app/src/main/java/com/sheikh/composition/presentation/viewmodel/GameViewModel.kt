@@ -23,9 +23,9 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val generateQuestionUseCase = GenerateQuestion(repository)
     private val getGameSettingsUseCase = GetGameSettingsUseCase(repository)
 
-    private val _timeLeftInSeconds = MutableLiveData<String>()
-    val timeLeftInSeconds: LiveData<String>
-        get() = _timeLeftInSeconds
+    private val _timeLeft = MutableLiveData<String>()
+    val timeLeft: LiveData<String>
+        get() = _timeLeft
 
     private val _question = MutableLiveData<Question>()
     val question: LiveData<Question>
@@ -38,10 +38,6 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val _questionCount = MutableLiveData<Int>()
     val questionCount: LiveData<Int>
         get() = _questionCount
-
-    private val _correctAnswersCount = MutableLiveData<Int>()
-    val correctAnswersCount: LiveData<Int>
-        get() = _correctAnswersCount
 
     private val _answerAccuracyPercent = MutableLiveData<Int>()
     val answerAccuracyPercent: LiveData<Int>
@@ -83,6 +79,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         getGameSettings(level)
         startTimer()
         generateNewQuestion()
+        updateProgress()
     }
 
     private fun getGameSettings(level: Level) {
@@ -100,7 +97,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             MILLIS_IN_SECONDS
         ) {
             override fun onTick(p0: Long) {
-                _timeLeftInSeconds.value = convertTime(p0)
+                _timeLeft.value = convertTime(p0)
                 _timeOut.value = false
             }
 
@@ -110,15 +107,6 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         }
 
         timer?.start()
-    }
-
-    private fun finishGame() {
-        _gameResult.value = GameResult(
-            enoughAnswerCount.value == true && enoughAnswerPercent.value == true,
-            countOfRightAnswers,
-            countOfQuestions,
-            gameSettings
-        )
     }
 
     private fun updateProgress() {
@@ -137,7 +125,10 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun calculatePercentOfRightAnswers(): Int {
-        return ((countOfQuestions / countOfRightAnswers).toDouble() * 100).toInt()
+        if (countOfQuestions == 0) {
+            return 0
+        }
+        return ((countOfRightAnswers / countOfQuestions.toDouble()) * 100).toInt()
     }
 
     private fun convertTime(timeInMillis: Long): String {
@@ -163,6 +154,15 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             countOfRightAnswers++
         }
         countOfQuestions++
+    }
+
+    private fun finishGame() {
+        _gameResult.value = GameResult(
+            enoughAnswerCount.value == true && enoughAnswerPercent.value == true,
+            countOfRightAnswers,
+            countOfQuestions,
+            gameSettings
+        )
     }
 
     override fun onCleared() {
