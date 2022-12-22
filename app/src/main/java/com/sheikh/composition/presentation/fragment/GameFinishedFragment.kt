@@ -148,7 +148,7 @@ class GameFinishedFragment : Fragment() {
 
         const val FRAGMENT_NAME = "GameFinishedFragment"
 
-        private const val GAME_RESULT = "RESULT"
+        const val GAME_RESULT = "RESULT"
 
         fun newInstance(gameResult: GameResult): GameFinishedFragment {
             return GameFinishedFragment().apply {
