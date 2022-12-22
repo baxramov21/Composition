@@ -27,7 +27,7 @@ class GameFragment : Fragment() {
     private lateinit var level: Level
     
     private val viewModelFactory by lazy {
-        GameViewModelFactory(level,requireActivity().application)
+        GameViewModelFactory(requireActivity().application, level)
     }
 
     private val gameViewModel: GameViewModel by lazy {

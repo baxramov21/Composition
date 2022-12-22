@@ -16,11 +16,6 @@ class GameViewModel(
     private val application: Application, private val level: Level
 ) : ViewModel() {
 
-
-    init {
-        startGame()
-    }
-
     private val repository = GameRepositoryImpl
 
     private val generateQuestionUseCase = GenerateQuestion(repository)
@@ -78,6 +73,10 @@ class GameViewModel(
     private var maxSumValue: Int = 0
 
 
+    init {
+        startGame()
+    }
+
    private fun startGame() {
         getGameSettings()
         startTimer()
@@ -86,9 +85,9 @@ class GameViewModel(
     }
 
     private fun getGameSettings() {
-        this.gameSettings = getGameSettingsUseCase(level)
-//        timeInSeconds = gameSettings.timeInSeconds
-//        maxSumValue = gameSettings.maxSumValue
+        gameSettings = getGameSettingsUseCase.invoke(this.level)
+        timeInSeconds = gameSettings.timeInSeconds
+        maxSumValue = gameSettings.maxSumValue
         _minPercent.value = gameSettings.minPercentOfRightAnswers
 
     }
