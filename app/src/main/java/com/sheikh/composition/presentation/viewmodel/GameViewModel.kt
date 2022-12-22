@@ -2,9 +2,7 @@ package com.sheikh.composition.presentation.viewmodel
 
 import android.app.Application
 import android.os.CountDownTimer
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.sheikh.composition.R
 import com.sheikh.composition.data.GameRepositoryImpl
 import com.sheikh.composition.domain.entities.GameResult
@@ -14,9 +12,14 @@ import com.sheikh.composition.domain.entities.Question
 import com.sheikh.composition.domain.usecase.GenerateQuestion
 import com.sheikh.composition.domain.usecase.GetGameSettingsUseCase
 
-class GameViewModel(application: Application) : AndroidViewModel(application) {
+class GameViewModel(
+    private val application: Application, private val level: Level
+) : ViewModel() {
 
-    private val context = application
+
+    init {
+        startGame()
+    }
 
     private val repository = GameRepositoryImpl
 
@@ -75,17 +78,17 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private var maxSumValue: Int = 0
 
 
-    fun startGame(level: Level) {
-        getGameSettings(level)
+   private fun startGame() {
+        getGameSettings()
         startTimer()
         generateNewQuestion()
         updateProgress()
     }
 
-    private fun getGameSettings(level: Level) {
-        gameSettings = getGameSettingsUseCase(level)
-        timeInSeconds = gameSettings.timeInSeconds
-        maxSumValue = gameSettings.maxSumValue
+    private fun getGameSettings() {
+        this.gameSettings = getGameSettingsUseCase(level)
+//        timeInSeconds = gameSettings.timeInSeconds
+//        maxSumValue = gameSettings.maxSumValue
         _minPercent.value = gameSettings.minPercentOfRightAnswers
 
     }
@@ -113,7 +116,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         val percent = calculatePercentOfRightAnswers()
         _answerAccuracyPercent.value = percent
         _progressAnswers.value = String.format(
-            context.resources.getString(R.string.progress_answers),
+            application.resources.getString(R.string.progress_answers),
             countOfRightAnswers,
             gameSettings.minCountOfRightAnswers
         )
@@ -138,7 +141,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         return String.format("%02d:%02d", minutes, leftSeconds)
     }
 
-    fun generateNewQuestion() {
+    private fun generateNewQuestion() {
         _question.value = generateQuestionUseCase(maxSumValue)
     }
 
