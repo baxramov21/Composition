@@ -32,6 +32,9 @@
             app:destination="@id/gameFinishedFragment"
             app:popUpTo="@id/gameFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="level"
+            app:argType="com.sheikh.composition.domain.entities.Level" />
     </fragment>
 
     <fragment
@@ -40,5 +43,8 @@
         android:label="fragment_game_finished"
         tools:layout="@layout/fragment_game_finished" >
 
+        <argument
+            android:name="gameResult"
+            app:argType="com.sheikh.composition.domain.entities.GameResult" />
     </fragment>
 </navigation>
