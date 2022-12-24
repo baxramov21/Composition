@@ -9,6 +9,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import com.sheikh.composition.R
 import com.sheikh.composition.databinding.FragmentGameFinishedBinding
 import com.sheikh.composition.domain.entities.GameResult
@@ -137,11 +138,13 @@ class GameFinishedFragment : Fragment() {
     }
 
     private fun retryGame() {
-        requireActivity().supportFragmentManager
-            .popBackStack(
-                GameFragment.FRAGMENT_NAME,
-                FragmentManager.POP_BACK_STACK_INCLUSIVE
-            )
+//        requireActivity().supportFragmentManager
+//            .popBackStack(
+//                GameFragment.FRAGMENT_NAME,
+//                FragmentManager.POP_BACK_STACK_INCLUSIVE
+//            )
+        findNavController().navigate(R.id.action_gameFinishedFragment_to_chooseLevelFragment)
+
     }
 
     companion object {

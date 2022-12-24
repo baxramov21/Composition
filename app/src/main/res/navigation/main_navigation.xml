@@ -35,5 +35,9 @@
         android:id="@+id/gameFinishedFragment"
         android:name="com.sheikh.composition.presentation.fragment.GameFinishedFragment"
         android:label="fragment_game_finished"
-        tools:layout="@layout/fragment_game_finished" />
+        tools:layout="@layout/fragment_game_finished" >
+        <action
+            android:id="@+id/action_gameFinishedFragment_to_chooseLevelFragment"
+            app:destination="@id/chooseLevelFragment" />
+    </fragment>
 </navigation>
