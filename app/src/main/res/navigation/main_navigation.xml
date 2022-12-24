@@ -29,15 +29,22 @@
         tools:layout="@layout/fragment_game" >
         <action
             android:id="@+id/action_gameFragment_to_gameFinishedFragment"
-            app:destination="@id/gameFinishedFragment" />
+            app:destination="@id/gameFinishedFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="level"
+            app:argType="com.sheikh.composition.domain.entities.Level" />
     </fragment>
+
     <fragment
         android:id="@+id/gameFinishedFragment"
         android:name="com.sheikh.composition.presentation.fragment.GameFinishedFragment"
         android:label="fragment_game_finished"
         tools:layout="@layout/fragment_game_finished" >
-        <action
-            android:id="@+id/action_gameFinishedFragment_to_chooseLevelFragment"
-            app:destination="@id/chooseLevelFragment" />
+
+        <argument
+            android:name="gameResult"
+            app:argType="com.sheikh.composition.domain.entities.GameResult" />
     </fragment>
 </navigation>
