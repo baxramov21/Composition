@@ -152,11 +152,4 @@ class GameFragment : Fragment() {
             GameFragmentDirections.actionGameFragmentToGameFinishedFragment(gameResult)
         )
     }
-
-    companion object {
-
-        private const val FRAGMENT_NAME = "GameFragment"
-
-        private const val KEY_LEVEL = "level"
-    }
 }
