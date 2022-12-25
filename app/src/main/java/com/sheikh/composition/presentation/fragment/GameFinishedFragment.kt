@@ -123,10 +123,4 @@ class GameFinishedFragment : Fragment() {
         findNavController().popBackStack()
 
     }
-
-    companion object {
-
-        private const val FRAGMENT_NAME = "GameFinishedFragment"
-        private const val GAME_RESULT = "RESULT"
-    }
 }

@@ -59,8 +59,4 @@ class ChooseLevelFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-    companion object {
-        private const val FRAGMENT_NAME = "ChooseLevelFragment"
-    }
 }
