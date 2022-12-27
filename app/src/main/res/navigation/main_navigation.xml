@@ -10,8 +10,8 @@
         android:name="com.sheikh.composition.presentation.fragment.WelcomeFragment"
         android:label="WelcomeFragment" >
         <action
-            android:id="@+id/action_welcomeFragment_to_chooseLevelFragment"
-            app:destination="@id/chooseLevelFragment" />
+            android:id="@+id/action_welcomeFragment_to_chooseWorkTypeFragment"
+            app:destination="@id/chooseWorkTypeFragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseLevelFragment"
@@ -47,4 +47,21 @@
             android:name="gameResult"
             app:argType="com.sheikh.composition.domain.entities.GameResult" />
     </fragment>
+    <fragment
+        android:id="@+id/chooseWorkTypeFragment"
+        android:name="com.sheikh.composition.ChooseWorkTypeFragment"
+        android:label="fragment_choose_work_type"
+        tools:layout="@layout/fragment_choose_work_type" >
+        <action
+            android:id="@+id/action_chooseWorkTypeFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+        <action
+            android:id="@+id/action_chooseWorkTypeFragment_to_chooseLevelFragment"
+            app:destination="@id/chooseLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.sheikh.composition.CalculatorFragment"
+        android:label="fragment_calculator"
+        tools:layout="@layout/fragment_calculator" />
 </navigation>

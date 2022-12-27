@@ -54,21 +54,21 @@ class GameFinishedFragment : Fragment() {
     private fun showResultInNumbers() {
         with(binding) {
             with(gameResult) {
-                val requiredCountText =
-                    getFormattedStringById(
-                        R.string.required_score,
-                        gameSettings.minCountOfRightAnswers
-                    )
-
-                tvRequiredAnswers.text = requiredCountText
-
-                val scoredCountText = String.format(
-                    contextT.getString(R.string.right_answers),
-                    countOfRightAnswers,
-                    gameSettings.minCountOfRightAnswers
-                )
-
-                tvScoreAnswers.text = scoredCountText
+//                val requiredCountText =
+//                    getFormattedStringById(
+//                        R.string.required_score,
+//                        gameSettings.minCountOfRightAnswers
+//                    )
+//
+//                tvRequiredAnswers.text = requiredCountText
+//
+//                val scoredCountText = String.format(
+//                    contextT.getString(R.string.right_answers),
+//                    countOfRightAnswers,
+//                    gameSettings.minCountOfRightAnswers
+//                )
+//
+//                tvScoreAnswers.text = scoredCountText
 
             }
         }
@@ -77,18 +77,18 @@ class GameFinishedFragment : Fragment() {
     private fun showResultInPercents() {
         with(binding) {
             with(gameResult) {
-                val minPercentText =
-                    getFormattedStringById(
-                        R.string.required_percentage,
-                        gameSettings.minPercentOfRightAnswers
-                    )
-                tvRequiredPercentage.text = minPercentText
+//                val minPercentText =
+//                    getFormattedStringById(
+//                        R.string.required_percentage,
+//                        gameSettings.minPercentOfRightAnswers
+//                    )
+//                tvRequiredPercentage.text = minPercentText
 
-                val scoredPercent = getPercentOfRightAnswers(countOfQuestions, countOfRightAnswers)
-
-                val scoredPercentText =
-                    getFormattedStringById(R.string.score_percentage, scoredPercent)
-                tvScorePercentage.text = scoredPercentText
+//                val scoredPercent = getPercentOfRightAnswers(countOfQuestions, countOfRightAnswers)
+//
+//                val scoredPercentText =
+//                    getFormattedStringById(R.string.score_percentage, scoredPercent)
+//                tvScorePercentage.text = scoredPercentText
             }
         }
     }

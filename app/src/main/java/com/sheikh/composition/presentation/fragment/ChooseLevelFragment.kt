@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.sheikh.composition.R
 import com.sheikh.composition.databinding.FragmentChooseLevelBinding
 import com.sheikh.composition.domain.entities.Level
 
