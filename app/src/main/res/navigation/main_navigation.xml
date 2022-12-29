@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/chooseWorkTypeFragment"
-        android:name="com.sheikh.composition.ChooseWorkTypeFragment"
+        android:name="com.sheikh.composition.presentation.fragment.extra.ChooseWorkTypeFragment"
         android:label="fragment_choose_work_type"
         tools:layout="@layout/fragment_choose_work_type" >
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/calculatorFragment"
-        android:name="com.sheikh.composition.CalculatorFragment"
+        android:name="com.sheikh.composition.presentation.fragment.extra.CalculatorFragment"
         android:label="fragment_calculator"
         tools:layout="@layout/fragment_calculator" />
 </navigation>
