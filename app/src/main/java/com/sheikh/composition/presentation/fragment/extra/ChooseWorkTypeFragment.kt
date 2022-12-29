@@ -1,4 +1,4 @@
-package com.sheikh.composition
+package com.sheikh.composition.presentation.fragment.extra
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.sheikh.composition.R
 import com.sheikh.composition.databinding.FragmentChooseWorkTypeBinding
 
 
