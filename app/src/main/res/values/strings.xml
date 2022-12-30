@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JetpackStart</string>
+    <string name="app_name">Baxramov_21</string>
     <string name="question_mark">\?</string>
     <string name="welcome_title">Состав числа</string>
     <string name="game_rules">
@@ -24,4 +24,11 @@
     <string name="required_percentage">Необходимый процент правильных ответов: %s</string>
     <string name="required_score">Необходимое количество правильных ответов: %s</string>
     <string name="progress_answers">Правильных ответов %s (минимум %s)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="game_type">Game</string>
+    <string name="learn_type">Calculate</string>
+    <string name="choose_the_work_type">Choose the work type</string>
+    <string name="input">Input</string>
+    <string name="calculate">Calculate</string>
 </resources>

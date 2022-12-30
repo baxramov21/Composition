@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -37,7 +38,7 @@ class GameFinishedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.gameResult = args.gameResult
         binding.buttonRetry.setOnClickListener {
             retryGame()
         }
@@ -53,22 +54,22 @@ class GameFinishedFragment : Fragment() {
 
     private fun showResultInNumbers() {
         with(binding) {
-            with(gameResult) {
-                val requiredCountText =
-                    getFormattedStringById(
-                        R.string.required_score,
-                        gameSettings.minCountOfRightAnswers
-                    )
-
-                tvRequiredAnswers.text = requiredCountText
-
-                val scoredCountText = String.format(
-                    contextT.getString(R.string.right_answers),
-                    countOfRightAnswers,
-                    gameSettings.minCountOfRightAnswers
-                )
-
-                tvScoreAnswers.text = scoredCountText
+            with(args.gameResult) {
+//                val requiredCountText =
+//                    getFormattedStringById(
+//                        R.string.required_score,
+//                        gameSettings.minCountOfRightAnswers
+//                    )
+//
+//                tvRequiredAnswers.text = requiredCountText
+//
+//                val scoredCountText = String.format(
+//                    contextT.getString(R.string.right_answers),
+//                    countOfRightAnswers,
+//                    gameSettings.minCountOfRightAnswers
+//                )
+//
+//                tvScoreAnswers.text = scoredCountText
 
             }
         }
@@ -76,15 +77,17 @@ class GameFinishedFragment : Fragment() {
 
     private fun showResultInPercents() {
         with(binding) {
-            with(gameResult) {
-                val minPercentText =
-                    getFormattedStringById(
-                        R.string.required_percentage,
-                        gameSettings.minPercentOfRightAnswers
-                    )
-                tvRequiredPercentage.text = minPercentText
+            with(args.gameResult) {
 
-                val scoredPercent = getPercentOfRightAnswers(countOfQuestions, countOfRightAnswers)
+//                val minPercentText =
+//                    getFormattedStringById(
+//                        R.string.required_percentage,
+//                        gameSettings.minPercentOfRightAnswers
+//                    )
+//                tvRequiredPercentage.text = minPercentText
+
+                val scoredPercent =
+                    getPercentOfRightAnswers(countOfQuestions, countOfRightAnswers)
 
                 val scoredPercentText =
                     getFormattedStringById(R.string.score_percentage, scoredPercent)

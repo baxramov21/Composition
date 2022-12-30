@@ -1,6 +1,7 @@
 package com.sheikh.composition.domain.repository
 
 import com.sheikh.composition.domain.entities.GameSettings
+import com.sheikh.composition.domain.entities.GameType
 import com.sheikh.composition.domain.entities.Level
 import com.sheikh.composition.domain.entities.Question
 
