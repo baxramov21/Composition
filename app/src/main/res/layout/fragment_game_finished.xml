@@ -25,14 +25,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_smile" />
+            app:resultEmoji="@{gameResult.win}"/>
 
         <TextView
             android:id="@+id/tv_required_answers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@{gameResult.gameSettings.minCountOfRightAnswersString}"
+            app:requiredAnswers="@{gameResult.gameSettings.minCountOfRightAnswers}"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/tv_score_answers"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
             android:id="@+id/tv_score_answers"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{gameResult.countOfRightAnswersString}"
+            app:scoredCount="@{gameResult.countOfRightAnswers}"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/tv_required_percentage"
             app:layout_constraintEnd_toEndOf="@id/tv_required_answers"
@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@{gameResult.gameSettings.minPercentOfRightAnswersString}"
+            app:requiredPercentage="@{gameResult.gameSettings.minPercentOfRightAnswers}"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/tv_score_percentage"
             app:layout_constraintEnd_toEndOf="@id/tv_required_answers"
@@ -69,7 +69,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/score_percentage"
+            app:scoredPercent="@{gameResult.countOfQuestions}"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/tv_required_answers"
