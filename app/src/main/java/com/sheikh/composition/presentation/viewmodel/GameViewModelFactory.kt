@@ -11,6 +11,6 @@ class GameViewModelFactory(private val application: Application, private val lev
         if (modelClass.isAssignableFrom(GameViewModel::class.java)) {
             return GameViewModel(application,level) as T
         }
-        throw IllegalArgumentException("Unknown view mode class $modelClass")
+        throw IllegalArgumentException("Unknown view model class $modelClass")
     }
 }
